@@ -11,6 +11,13 @@ export default class SlackifyNote extends Plugin {
 		// Replace callouts with quotes
 		result = result.replace(/\[\!\w+\][-+]?\s+/, '')
 
+		// Un-escape ampersands. slackify-markdown HTML-escapes & to &amp; for
+		// Slack's API mrkdwn, but this plugin copies to the clipboard for pasting
+		// into the Slack composer, which does NOT decode entities -- so &amp;
+		// shows up literally. Decode it back. (< and > escaping is left intact:
+		// Slack needs those for link/mention syntax.)
+		result = result.replace(/&amp;/g, '&')
+
 		return result;
 	}
 

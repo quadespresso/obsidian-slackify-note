@@ -1,11 +1,11 @@
 {
-	"id": "slackify-note",
-	"name": "Slackify Note",
-	"version": "1.2.1",
+	"id": "slackify-note-fork",
+	"name": "Slackify Note (fork)",
+	"version": "1.2.1-fork.1",
 	"minAppVersion": "1.4.16",
-	"description": "Converts a note to a Slack-compliant markdown using [slackify-markdown](https://www.npmjs.com/package/slackify-markdown)",
-	"author": "Jeremy Overman",
-	"authorUrl": "https://github.com/jeremyoverman",
+	"description": "Fork of Slackify Note by Jeremy Overman. Adds an ampersand fix: slackify-markdown escapes & to &amp; for Slack's API, which shows up literally when pasting into the Slack composer, so this decodes it back. < and > escaping is retained for Slack link/mention syntax.",
+	"author": "Jeremy Overman (fork: Jim Carroll)",
+	"authorUrl": "https://github.com/quadespresso/obsidian-slackify-note",
 	"fundingUrl": "https://www.buymeacoffee.com/jeremyoverman",
 	"isDesktopOnly": false
 }
