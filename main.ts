@@ -18,6 +18,13 @@ export default class SlackifyNote extends Plugin {
 		// Slack needs those for link/mention syntax.)
 		result = result.replace(/&amp;/g, '&')
 
+		// Strip the zero-width spaces (U+200B) that slackify-markdown wraps around
+		// *bold* / _italic_ / ~strike~ markers. The library adds them for Slack's
+		// API in-word formatting (e.g. hel*l*o), but this plugin pastes into the
+		// Slack composer, where a ZWSP sitting against the marker stops Slack
+		// closing it -- so bold/italic render literally as * and _. Remove them.
+		result = result.replace(/​/g, '')
+
 		return result;
 	}
 
